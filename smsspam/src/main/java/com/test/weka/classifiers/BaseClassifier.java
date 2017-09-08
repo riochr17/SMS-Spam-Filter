@@ -1,9 +1,7 @@
 /**
  * Copyright Guendouz Mohamed 2013
  */
-package com.guendouz.smsspam.classifiers;
-
-import com.guendouz.smsspam.util.DatasetUtil;
+package com.test.weka.classifiers;
 
 import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
@@ -11,12 +9,14 @@ import weka.classifiers.bayes.NaiveBayes;
 import weka.core.Attribute;
 import weka.core.Instance;
 import weka.core.Instances;
+import weka.core.converters.ConverterUtils;
 import weka.core.tokenizers.WordTokenizer;
 import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.StringToWordVector;
+import weka.core.converters.ConverterUtils.DataSource;
 
 /**
- * @author Guendouz Mohamed
+ * @author credit: Guendouz Mohamed (https://github.com/guenodz/SMS-Spam-Classifier-)
  * 
  *         BaseClassifier a Base Classifier , this class contain data and
  *         methods to build a classifier. if the classifier is not set than we
@@ -46,11 +46,29 @@ public class BaseClassifier {
 		this.classifier = classifier;
 	}
 
+	private Instances arrfLoader(String location){
+		DataSource source = null;
+		try {
+			source = new DataSource(location);
+
+			Instances data = source.getDataSet();
+			if (data.classIndex() == -1) {
+				data.setClassIndex(data.numAttributes() - 1);
+			}
+
+			return data;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
 	public BaseClassifier() {
 
 		try {
 			/** loading the arff file content */
-			train = DatasetUtil.loadArff("dataset/dataset.arff");
+			train = arrfLoader("dataset/dataset.arff");
 			/** initializing the filter */
 			wordVector = new StringToWordVector();
 			wordVector.setInputFormat(train);
