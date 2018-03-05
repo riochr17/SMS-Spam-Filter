@@ -1,6 +1,7 @@
 # SMS Span Classifier
 
 Klasifikasi SMS termasuk ke dalam kategori spam atau tidak menggunakan metode **Naive Bayes** dan **K-Nearest Neighbour**
+
 _a Data Mining Approch to classify SMS messages either Spam or Ham using the Weka API on the SMS Spam Collection ._
 
 ## Installation
