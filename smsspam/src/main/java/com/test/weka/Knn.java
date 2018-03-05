@@ -1,5 +1,5 @@
 /**
- * Copyright Guendouz Mohamed 2013
+ * Copyright Rio Chandra Rajagukguk
  */
 package com.test.weka;
 

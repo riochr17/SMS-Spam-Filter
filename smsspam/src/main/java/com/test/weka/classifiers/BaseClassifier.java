@@ -1,5 +1,5 @@
 /**
- * Copyright Guendouz Mohamed 2013
+ * Copyright Rio Chandra Rajagukguk
  */
 package com.test.weka.classifiers;
 
@@ -15,14 +15,7 @@ import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.StringToWordVector;
 import weka.core.converters.ConverterUtils.DataSource;
 
-/**
- * @author credit: Guendouz Mohamed (https://github.com/guenodz/SMS-Spam-Classifier-)
- * 
- *         BaseClassifier a Base Classifier , this class contain data and
- *         methods to build a classifier. if the classifier is not set than we
- *         use by default the NaiveBayes Classifier.
- * 
- */
+
 public class BaseClassifier {
 
 	/** Instances object to handle the dataset content */
